@@ -1,0 +1,442 @@
+/*
+Theme Name: Bootstrap Shape Slider
+Author: Intechsoft
+Author URI: http://arifkarim.de
+Description: Bootstrap Shape Slider
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+*/
+
+
+/*--------------------------------fonts--------------------------------*/
+
+/*p{
+font-family: 'Montserrat', sans-serif;
+}*/
+
+
+/*--------------------------------reset CSS--------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration:none;
+    color: #4aa82d;
+}
+table {
+    border-spacing: 0;
+}
+fieldset,img {
+    border: 0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+    font-weight: normal;
+    font-style: normal;
+}
+strong{
+    font-weight: normal;
+    font-family: 'Montserrat', sans-serif;
+}
+ol,ul {
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+caption,th {
+    text-align: left;
+}
+
+q:before,q:after {content:'';}
+abbr,acronym { border: 0;}
+button {cursor: pointer}
+
+/*--------------------------------general CSS--------------------------------*/
+
+html,body {
+    background-color: #fff;
+}
+
+body {
+    font-size:14px;
+    color:#000;
+}
+
+
+#main {
+    margin-bottom: 47px;
+}
+
+
+
+
+/*--------------------------------banner--------------------------------*/
+
+#banner {
+    /*margin-bottom: 40px;*/
+    margin-top: 120px;
+    /*width: 1140px;*/
+    /*height: 560px;*/
+}
+.bannerWrap {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.bannerContainer {
+    width: 1140px;
+    height: 560px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+#banner ul {
+    width: 100%;
+    height: 100%;
+}
+#banner ul li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#banner ul li.current {
+    z-index: 2;
+}
+#banner a {
+    background-color: transparent;
+    background-position: center center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#banner a span {
+    display: none;
+
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    text-transform: uppercase;
+}
+#banner a.no-image {
+    background-image: none !important;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+#banner .forLink_2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 60%;
+}
+#banner .aloneSlide .forLink_2 {
+    width: 100%;
+}
+#banner .readyLink {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#banner .forLink {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    z-index: 1;
+    cursor: pointer;
+}
+#banner .next_A .forLink,
+#banner .next_A.aloneSlide .forLink_2 {
+    z-index: 4;
+    /*display: none;*/
+    opacity: 0;
+}
+#banner .next_B .forLink_2 {
+    z-index: 3;
+    /*display: none;*/
+    opacity: 0;
+}
+#banner .forLink div {
+    width: 100%;
+    height: 100%;
+}
+#banner .forLink div.fl_1 {
+    -webkit-transform: rotate(28deg);
+    -moz-transform: rotate(28deg);
+    -ms-transform: rotate(28deg);
+    -o-transform: rotate(28deg);
+    transform: rotate(28deg);
+    overflow: hidden;
+    height: 815px;
+    margin-left: -155px;
+    margin-top: -175px;
+    width: 135%;
+}
+#banner .forLink div.fl_2 {
+    -webkit-transform: rotate(-28deg);
+    -moz-transform: rotate(-28deg);
+    -ms-transform: rotate(-28deg);
+    -o-transform: rotate(-28deg);
+    transform: rotate(-28deg);
+    width: 114%;
+    height: 805px;
+}
+#banner .forLink div.fl_3 {
+    -webkit-transform: rotate(-26deg);
+    -moz-transform: rotate(-26deg);
+    -ms-transform: rotate(-26deg);
+    -o-transform: rotate(-26deg);
+    transform: rotate(-26deg);
+    overflow: hidden;
+}
+#banner .forLink div.fl_4 {
+    -webkit-transform: rotate(26deg);
+    -moz-transform: rotate(26deg);
+    -ms-transform: rotate(26deg);
+    -o-transform: rotate(26deg);
+    transform: rotate(26deg);
+}
+#banner .forLink a.fl_5,
+#banner .forLink div.fl_5 {
+    bottom: 0;
+    /*cursor: pointer;*/
+    cursor: default;
+    height: 570px;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 55px;
+    width: 730px;
+    z-index: 4;
+}
+#banner .readyLink span,
+#banner .fl_5 span {
+    display: block;
+    color: #000;
+}
+#banner .partOneTop {
+    background-color: #fff;
+    height: 161px;
+    left: 50%;
+    margin-left: 107px;
+    position: absolute;
+    top: -14px;
+    -webkit-transform: rotate(-26deg);
+    -moz-transform: rotate(-26deg);
+    -ms-transform: rotate(-26deg);
+    -o-transform: rotate(-26deg);
+    transform: rotate(-26deg);
+    width: 17px;
+    z-index: 6;
+}
+#banner .partOneBottom {
+    background-color: #fff;
+    bottom: -36px;
+    height: 493px;
+    left: 50%;
+    margin-left: 28px;
+    position: absolute;
+    -webkit-transform: rotate(28deg);
+    -moz-transform: rotate(28deg);
+    -ms-transform: rotate(28deg);
+    -o-transform: rotate(28deg);
+    transform: rotate(28deg);
+    width: 17px;
+    z-index: 6;
+}
+#banner .partTwoTop {
+    background-color: rgba(255,255,255,0.78);
+    height: 281px;
+    left: 0;
+    margin-left: -156px;
+    position: absolute;
+    top: 46px;
+    -webkit-transform: rotate(-26deg) skewY(-36deg);
+    -moz-transform: rotate(-26deg) skewY(-36deg);
+    -ms-transform: rotate(-26deg) skewY(-36deg);
+    -o-transform: rotate(-26deg) skewY(-36deg);
+    transform: rotate(-26deg) skewY(-36deg);
+    width: 322px;
+    z-index: 6;
+}
+#banner .partTwoBottom {
+    background-color: #fff;
+    bottom: -14px;
+    height: 493px;
+    left: 0;
+    margin-left: -63px;
+    position: absolute;
+    -webkit-transform: rotate(28deg);
+    -moz-transform: rotate(28deg);
+    -ms-transform: rotate(28deg);
+    -o-transform: rotate(28deg);
+    transform: rotate(28deg);
+    width: 115px;
+    z-index: 6;
+}
+#banner .fur {
+    position: absolute;
+    z-index: 6;
+    top: 110px;
+    left: 29px;
+    font: 40px/1 "SkodaExBold";
+}
+#banner .dieHemb {
+    position: absolute;
+    z-index: 6;
+    bottom: 36px;
+    left: 149px;
+    width: 295px;
+    height: 30px;
+}
+#banner .dieBemb {
+    position: absolute;
+    z-index: 6;
+    top: 51px;
+    right: 108px;
+    width: 293px;
+    height: 30px;
+}
+#banner .dieHemb img,
+#banner .dieBemb img,
+#banner .fur img { width: 100%; height: 100%; }
+#banner .shadowLeft,
+#banner .shadowRight,
+#banner .shadowTop,
+#banner .shadowBottom {
+    box-shadow: 0 0 46px 2px #0f0f0f;
+    position: absolute;
+    z-index: 7;
+}
+#banner .shadowLeft {
+    bottom: 0;
+    top: 0;
+    left: 0;
+    width: 0;
+}
+#banner .shadowRight {
+    bottom: 0;
+    top: 0;
+    right: 0;
+    width: 0;
+}
+#banner .shadowTop {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+}
+#banner .shadowBottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+}
+
+
+/*-------------------------------- banner headline Text--------------------------------*/
+
+.headlineText{
+  bottom: 36px;
+  left: 157px;
+}
+
+.headlineText-2{
+  top: 44px;
+  left: 282px;
+}
+
+.headlineText-3{
+  top: 155px;
+  left: 199px;
+}
+.headlineText-4{
+  bottom: 31px;
+  left: 142px
+}
+.headlineText-5{
+  bottom: 37px;
+  left: 56px;
+}
+.headlineText-6{
+  top: 49px;
+  left: 407px;
+  text-indent: -120px;
+}
+.headlineText-7{
+  bottom: 31px;
+  right: 117px;
+}
+
+.headlineText-8{
+  top: 53px;
+  left: 229px;
+}
+
+.headlineText-9{
+  bottom: 33px;
+  left: 128px;
+}
+
+.headlineText-10{
+  top: 53px;
+  left: 218px;
+}
+
+.headlineText-11{
+  bottom: 26px;
+  left: 226px;
+  text-indent: -69px;
+}
+
+.headlineText-12{
+  bottom: 31px;
+  right: 117px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:767px){
+    #banner {margin-bottom: 20px}
+
+    #main {margin-bottom: 30px}
+
+}
+
+
+@media screen and (max-width:600px){
+    /*#banner { margin: 0 -15px 47px; }*/
+}
+
+@media screen and (max-width:479px){
+    /*#banner { margin: 0 -15px 25px; }*/
+
+
+}
