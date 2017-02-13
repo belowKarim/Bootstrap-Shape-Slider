@@ -66,9 +66,9 @@ body {
 }
 
 
-#main {
+/*#main {
     margin-bottom: 47px;
-}
+}*/
 
 
 
@@ -85,6 +85,7 @@ body {
     width: 100%;
     overflow: hidden;
     position: relative;
+    border: 1px solid blue;
 }
 .bannerContainer {
     width: 1140px;
@@ -93,6 +94,7 @@ body {
     top: 0;
     left: 0;
     overflow: hidden;
+    border: 1px solid tomato;
 }
 #banner ul {
     width: 100%;
@@ -294,7 +296,9 @@ body {
     z-index: 6;
     top: 110px;
     left: 29px;
-    font: 40px/1 "SkodaExBold";
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
 }
 #banner .dieHemb {
     position: absolute;
@@ -426,7 +430,7 @@ body {
 @media screen and (max-width:767px){
     #banner {margin-bottom: 20px}
 
-    #main {margin-bottom: 30px}
+    /*#main {margin-bottom: 30px}*/
 
 }
 
