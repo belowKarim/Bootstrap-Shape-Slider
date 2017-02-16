@@ -1,9 +1,9 @@
 $(document).ready(function($){
 
-    // bootStrapShapeSlider measurements
-    var sliderWidth = 1140,
-        sliderHeight = 560,
-        sliderRation = sliderWidth/sliderHeight;
+        // bootStrapShapeSlider measurements
+        var sliderWidth = 1140,
+            sliderHeight = 560,
+            sliderRation = sliderWidth/sliderHeight;
 
     // bootStrapShapeSlider Main Function
     function bootStrapShapeSlider(){
@@ -32,21 +32,12 @@ $(document).ready(function($){
         );
     }
 
-    // banner costructor
 
     $('#bss-slider-main li:first').addClass('current')
 
     if($('#bss-slider-main li:first').hasClass('carousel-generic')){
-      $('#bss-slider-main .bigSlide').hide()
+      $('#bss-slider-main .shape-off').hide()
     }
-
-    // this class should be remove when flag removed form first slider
-    // if($('#bss-slider-main li:first').hasClass('withoutflag')){
-    //   $('#bss-slider-main .bigFlag').hide()
-    // }
-
-
-
 
 
     $('#bss-slider-main li').each(function(){
@@ -81,7 +72,6 @@ $(document).ready(function($){
         }
     })
 
-    // banner slider
 
     var li_length = $('#bss-slider-main ul li').length;
 
@@ -91,71 +81,59 @@ $(document).ready(function($){
         current_li++;
         if(current_li < li_length){
             var current = $('#bss-slider-main ul li.current');
-            current.next().addClass('next_A');
+            current.next().addClass('slider-block-1');
 
 
-            //First two slider white Flag off whihc is located Top Left
-              // if(current.next().hasClass('withoutflag')){
-              //   $("#bss-slider-main .bigFlag").hide();
-              // } else {
-              //    $("#bss-slider-main .bigFlag").show();
-              // }
-
-
-            // Normal Slider Code
              if(current.next().hasClass('carousel-generic')){
-                $('#bss-slider-main .bigSlide').fadeOut(1000);
-                $('#bss-slider-main .next_A .bss-slider-block-2').animate({'opacity':'1'},1000,function(){
+                $('#bss-slider-main .shape-off').fadeOut(1000);
+                $('#bss-slider-main .slider-block-1 .bss-slider-block-2').animate({'opacity':'1'},1000,function(){
                     current.removeClass('current');
                     current.next().addClass('current');
-                    $('#bss-slider-main .next_A .bss-slider-block-2').attr('style','');
-                    current.next().removeClass('next_A');
+                    $('#bss-slider-main .slider-block-1 .bss-slider-block-2').attr('style','');
+                    current.next().removeClass('slider-block-1');
                 });
             }
 
             else {
-                $('#bss-slider-main .bigSlide').fadeIn(500);
-                $('#bss-slider-main .next_A .bss-slider-block-1').animate({'opacity':'1'},500,function(){
-                    current.next().addClass('next_B');
-                    $('#bss-slider-main .next_B .bss-slider-block-2').animate({'opacity':'1'},500,function(){
+                $('#bss-slider-main .shape-off').fadeIn(500);
+                $('#bss-slider-main .slider-block-1 .bss-slider-block-1').animate({'opacity':'1'},500,function(){
+                    current.next().addClass('slider-block-2');
+                    $('#bss-slider-main .slider-block-2 .bss-slider-block-2').animate({'opacity':'1'},500,function(){
                         current.removeClass('current');
                         current.next().addClass('current');
-                        $('#bss-slider-main .next_A .bss-slider-block-1').attr('style','');
-                        $('#bss-slider-main .next_B .bss-slider-block-2').attr('style','');
-                        current.next().removeClass('next_A next_B');
+                        $('#bss-slider-main .slider-block-1 .bss-slider-block-1').attr('style','');
+                        $('#bss-slider-main .slider-block-2 .bss-slider-block-2').attr('style','');
+                        current.next().removeClass('slider-block-1 slider-block-2');
                     });
                 });
             }
 
         }
         else {
-            // Slider white Flag off whihc is located Top Left and this loop again deactive taht flag when it reached new circle
-            // $("#banner .bigFlag").hide();
 
-            // Normal slider Code
             var current = $('#bss-slider-main ul li.current');
             var next = $('#bss-slider-main ul li:first');
-            next.addClass('next_A');
+            next.addClass('slider-block-1');
 
             if(next.hasClass('carousel-generic')){
-                $('#bss-slider-main .bigSlide').fadeOut(1000);
-                $('#bss-slider-main .next_A .bss-slider-block-2').animate({'opacity':'1'},1000,function(){
+                $('#bss-slider-main .shape-off').fadeOut(1000);
+                $('#bss-slider-main .slider-block-1 .bss-slider-block-2').animate({'opacity':'1'},1000,function(){
                     current.removeClass('current');
                     next.addClass('current');
-                    $('#bss-slider-main .next_A .bss-slider-block-2').attr('style','');
-                    next.removeClass('next_A');
+                    $('#bss-slider-main .slider-block-1 .bss-slider-block-2').attr('style','');
+                    next.removeClass('slider-block-1');
                 });
             }
             else {
-                $('#bss-slider-main .bigSlide').fadeIn(500);
-                $('#bss-slider-main .next_A .bss-slider-block-1').animate({'opacity':'1'},500,function(){
-                    next.addClass('next_B');
-                    $('#bss-slider-main .next_B .bss-slider-block-2').animate({'opacity':'1'},500,function(){
+                $('#bss-slider-main .shape-off').fadeIn(500);
+                $('#bss-slider-main .slider-block-1 .bss-slider-block-1').animate({'opacity':'1'},500,function(){
+                    next.addClass('slider-block-2');
+                    $('#bss-slider-main .slider-block-2 .bss-slider-block-2').animate({'opacity':'1'},500,function(){
                         current.removeClass('current');
                         next.addClass('current');
-                        $('#bss-slider-main .next_A .bss-slider-block-1').attr('style','');
-                        $('#bss-slider-main .next_B .bss-slider-block-2').attr('style','');
-                        next.removeClass('next_A next_B');
+                        $('#bss-slider-main .slider-block-1 .bss-slider-block-1').attr('style','');
+                        $('#bss-slider-main .slider-block-2 .bss-slider-block-2').attr('style','');
+                        next.removeClass('slider-block-1 slider-block-2');
                     });
                 });
             }
@@ -164,13 +142,13 @@ $(document).ready(function($){
 
     setTimeout(function(){
         var current = $('bss-slider-main ul li.current');
-        current.next().addClass('next_A');
+        current.next().addClass('slider-block-1');
         setInterval(function(){
             BannerSlides()
-        },5000)
+        },500)
 
       if(current.next().hasClass('carousel-generic')){
-            $('bss-slider-main .bigSlide').fadeOut(1000);
+            $('bss-slider-main .shape-off').fadeOut(1000);
             $('bss-slider-main .next_A .bss-slider-block-2').animate({'opacity':'1'},1000,function(){
                 current.removeClass('current');
                 current.next().addClass('current');
@@ -181,26 +159,26 @@ $(document).ready(function($){
         }
         else {
 
-            $('bss-slider-main .bigSlide').fadeIn(500);
+            $('bss-slider-main .shape-off').fadeIn(500);
             $('bss-slider-main .next_A .bss-slider-block-1').animate({'opacity':'1'},500,function(){
-                current.next().addClass('next_B');
-                $('bss-slider-main .next_B .bss-slider-block-2').animate({'opacity':'1'},500,function(){
+                current.next().addClass('slider-block-2');
+                $('bss-slider-main .slider-block-2 .bss-slider-block-2').animate({'opacity':'1'},500,function(){
                     current.removeClass('current');
                     current.next().addClass('current');
                     $('bss-slider-main .next_A .bss-slider-block-1').attr('style','');
-                    $('bss-slider-main .next_B .bss-slider-block-2').attr('style','');
-                    current.next().removeClass('next_A next_B');
+                    $('bss-slider-main .slider-block-2 .bss-slider-block-2').attr('style','');
+                    current.next().removeClass('next_A slider-block-2');
                 });
             });
         }
-    },4000)
+    },500)
 
 
 
-    // on load page
+    // Invoke main function
     bootStrapShapeSlider();
 
-    // on resize page
+    // Invoke main function on Resize Page
     $(window).resize(function(){
         bootStrapShapeSlider();
     })

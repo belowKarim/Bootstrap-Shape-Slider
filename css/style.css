@@ -10,67 +10,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 
-/*--------------------------------fonts--------------------------------*/
-
-/*p{
-font-family: 'Montserrat', sans-serif;
-}*/
-
-
-/*--------------------------------reset CSS--------------------------------*/
-
-* {
-    margin: 0;
-    padding: 0;
-}
-a {
-    text-decoration:none;
-    color: #4aa82d;
-}
-table {
-    border-spacing: 0;
-}
-fieldset,img {
-    border: 0;
-}
-address,caption,cite,code,dfn,em,strong,th,var {
-    font-weight: normal;
-    font-style: normal;
-}
-strong{
-    font-weight: normal;
-    font-family: 'Montserrat', sans-serif;
-}
-ol,ul {
-    list-style: none;
-    margin:0;
-    padding:0;
-}
-caption,th {
-    text-align: left;
-}
-
-q:before,q:after {content:'';}
-abbr,acronym { border: 0;}
-button {cursor: pointer}
-
-/*--------------------------------general CSS--------------------------------*/
-
-html,body {
-    background-color: #fff;
-}
-
 body {
     font-size:14px;
+    background-color: #fff;
     color:#000;
 }
-
-
-/*#main {
-    margin-bottom: 47px;
-}*/
-
-
 
 
 /*--------------------------------banner--------------------------------*/
@@ -161,13 +105,13 @@ body {
     z-index: 1;
     cursor: pointer;
 }
-#bss-slider-main .next_A .bss-slider-block-1,
-#bss-slider-main .next_A.carousel-generic .bss-slider-block-2 {
+#bss-slider-main .slider-block-1 .bss-slider-block-1,
+#bss-slider-main .slider-block-1.carousel-generic .bss-slider-block-2 {
     z-index: 4;
     /*display: none;*/
     opacity: 0;
 }
-#bss-slider-main .next_B .bss-slider-block-2 {
+#bss-slider-main .slider-block-2 .bss-slider-block-2 {
     z-index: 3;
     /*display: none;*/
     opacity: 0;
@@ -187,7 +131,7 @@ body {
     margin-left: -155px;
     margin-top: -175px;
     width: 135%;
-    border: 1px solid tomato;
+
 }
 #bss-slider-main .bss-slider-block-1 div.bss-slider-deactive-block-2 {
     -webkit-transform: rotate(-28deg);
@@ -197,7 +141,7 @@ body {
     transform: rotate(-28deg);
     width: 114%;
     height: 805px;
-    border: 1px solid blue;
+
 }
 #bss-slider-main .bss-slider-block-1 div.bss-slider-deactive-block-3 {
     -webkit-transform: rotate(-26deg);
@@ -206,7 +150,7 @@ body {
     -o-transform: rotate(-26deg);
     transform: rotate(-26deg);
     overflow: hidden;
-    border: 1px solid pink;
+
 }
 #bss-slider-main .bss-slider-block-1 div.bss-slider-deactive-block-4 {
     -webkit-transform: rotate(26deg);
@@ -214,7 +158,7 @@ body {
     -ms-transform: rotate(26deg);
     -o-transform: rotate(26deg);
     transform: rotate(26deg);
-    border: 1px solid cyan;
+
 }
 #bss-slider-main .bss-slider-block-1 a.bss-slider-active-block,
 #bss-slider-main .bss-slider-block-1 div.bss-slider-active-block {
@@ -237,8 +181,7 @@ body {
 
 
 
-
-#bss-slider-main .partOneTop {
+#bss-slider-main .top-triangle {
     background-color: #fff;
     height: 161px;
     left: 50%;
@@ -253,7 +196,8 @@ body {
     width: 17px;
     z-index: 6;
 }
-#bss-slider-main .partOneBottom {
+
+#bss-slider-main .bottom-triangle {
     background-color: #fff;
     bottom: -36px;
     height: 493px;
@@ -268,7 +212,7 @@ body {
     width: 17px;
     z-index: 6;
 }
-#bss-slider-main .partTwoTop {
+#bss-slider-main .arrow-triangle {
     background-color: rgba(255,255,255,0.78);
     height: 281px;
     left: 0;
@@ -298,7 +242,7 @@ body {
     width: 115px;
     z-index: 6;
 }
-#bss-slider-main .fur {
+#bss-slider-main .global-text {
     position: absolute;
     z-index: 6;
     top: 110px;
@@ -307,26 +251,28 @@ body {
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
 }
-#bss-slider-main .dieHemb {
+/*#bss-slider-main .dieHemb {
     position: absolute;
     z-index: 6;
     bottom: 36px;
     left: 149px;
     width: 295px;
     height: 30px;
-}
-#bss-slider-main .dieBemb {
+}*/
+/*#bss-slider-main .dieBemb {
     position: absolute;
     z-index: 6;
     top: 51px;
     right: 108px;
     width: 293px;
     height: 30px;
+}*/
+#bss-slider-main .global-text img {
+  width: 100%;
+  height: 100%;
 }
-#bss-slider-main .dieHemb img,
-#bss-slider-main .dieBemb img,
-#bss-slider-main .fur img { width: 100%; height: 100%; }
-#bss-slider-main .shadowLeft,
+
+#bss-slider-main .shadowLeft
 #bss-slider-main .shadowRight,
 #bss-slider-main .shadowTop,
 #bss-slider-main .shadowBottom {
@@ -334,12 +280,17 @@ body {
     position: absolute;
     z-index: 7;
 }
-#bss-slider-main .shadowLeft {
+#bss-slider-main .shadowLeft,
+#bss-slider-main .shadowRight,
+#bss-slider-main .shadowTop,
+#bss-slider-main .shadowBottom{
     bottom: 0;
     top: 0;
     left: 0;
     width: 0;
 }
+
+/*
 #bss-slider-main .shadowRight {
     bottom: 0;
     top: 0;
@@ -357,7 +308,7 @@ body {
     left: 0;
     right: 0;
     height: 0;
-}
+}*/
 
 
 /*-------------------------------- banner headline Text--------------------------------*/
