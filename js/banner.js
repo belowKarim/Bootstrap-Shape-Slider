@@ -1,119 +1,127 @@
-jQuery(document).ready(function($){
+$(document).ready(function($){
 
-    // banner measurements
+    // bootStrapShapeSlider measurements
+    var sliderWidth = 1140,
+        sliderHeight = 560,
+        sliderRation = sliderWidth/sliderHeight;
 
-    var bannerW = 1141,
-        bannerH = 560,
-        bannerK = bannerW/bannerH;
+    // bootStrapShapeSlider Main Function
+    function bootStrapShapeSlider(){
+        var fullSliderWidth = $('.bss-slider-wrapper').width(),
+            fullSliderHeight = fullSliderWidth/sliderRation;
 
-    function bannerWrap(){
-        var BannerWidth = $('.bannerWrap').width(),
-            BannerHeight = BannerWidth/bannerK;
-        $('.bannerWrap').height(BannerHeight);
-        var scale = BannerWidth/bannerW;
+        $('.bss-slider-wrapper').height(fullSliderHeight);
 
-        var NewWidth = bannerW*scale,
-            NewHeight = bannerH*scale,
-            NewML = (bannerW-NewWidth)/ 2,
-            NewMT = (bannerH-NewHeight)/ 2;
+        var scale = fullSliderWidth/sliderWidth;
 
-        $('.bannerContainer').css(
+        var finalSliderWidth = sliderWidth*scale,
+            finalSliderHeight = sliderHeight*scale,
+            finalWidthRation = (sliderWidth-finalSliderWidth)/ 2,
+            finalHeightRation = (sliderHeight-finalSliderHeight)/ 2;
+
+        $('.bss-slider-container').css(
             {
                 '-webkit-transform':'scale('+scale+')',
                 '-moz-transform':'scale('+scale+')',
                 '-o-transform':'scale('+scale+')',
                 '-ms-transform':'scale('+scale+')',
                 'transform':'scale('+scale+')',
-                'margin-top':-NewMT+'px',
-                'margin-left':-NewML+'px'
+                'margin-top':-finalHeightRation+'px',
+                'margin-left':-finalWidthRation+'px'
             }
         );
     }
 
     // banner costructor
 
-    $('#banner li:first').addClass('current')
-    if($('#banner li:first').hasClass('aloneSlide')){$('#banner .bigSlide').hide()}
+    $('#bss-slider-main li:first').addClass('current')
+
+    if($('#bss-slider-main li:first').hasClass('carousel-generic')){
+      $('#bss-slider-main .bigSlide').hide()
+    }
+
+    // this class should be remove when flag removed form first slider
+    // if($('#bss-slider-main li:first').hasClass('withoutflag')){
+    //   $('#bss-slider-main .bigFlag').hide()
+    // }
 
 
-    if($('#banner li:first').hasClass('withoutflag')){$('#banner .bigFlag').hide()}
 
 
 
-
-
-    $('#banner li').each(function(){
-        if($(this).hasClass('aloneSlide')){
-            var readyLink = $(this).find('.readyLink');
-            $(this).prepend('<div class="forLink_2"></div>');
-            $(this).find('.forLink_2').prepend(readyLink);
+    $('#bss-slider-main li').each(function(){
+        if($(this).hasClass('carousel-generic')){
+            var readyLink = $(this).find('.active-image-right');
+            $(this).prepend('<div class="bss-slider-block-2"></div>');
+            $(this).find('.bss-slider-block-2').prepend(readyLink);
         }
         else {
 
-            var linkClone = $(this).find('.upLink');
-            var readyLink = $(this).find('.readyLink');
+            var linkClone = $(this).find('.active-image-left');
+            var readyLink = $(this).find('.active-image-right');
             $(this).prepend('' +
-                '<div class="forLink">' +
-                '<div class="fl_1">' +
-                '<div class="fl_2">' +
-                '<div class="fl_3">' +
-                '<div class="fl_4">' +
+                '<div class="bss-slider-block-1">' +
+                '<div class="bss-slider-deactive-block-1">' +
+                '<div class="bss-slider-deactive-block-2">' +
+                '<div class="bss-slider-deactive-block-3">' +
+                '<div class="bss-slider-deactive-block-4">' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
-                '<div class="forLink_2"></div>'
+                '<div class="bss-slider-block-2"></div>'
             )
-            $(this).find('.forLink').prepend(readyLink.clone().addClass('no-image').removeClass('readyLink'))
-            $(this).find('.fl_1').prepend(readyLink.clone().addClass('no-image').removeClass('readyLink'))
-            $(this).find('.fl_2').prepend(readyLink.clone().addClass('no-image').removeClass('readyLink'))
-            $(this).find('.fl_4').prepend(linkClone.addClass('fl_5'))
-            $(this).find('.forLink_2').prepend(readyLink);
+            $(this).find('.bss-slider-block-1').prepend(readyLink.clone().addClass('no-image').removeClass('active-image-right'))
+            $(this).find('.bss-slider-deactive-block-1').prepend(readyLink.clone().addClass('no-image').removeClass('active-image-right'))
+            $(this).find('.bss-slider-deactive-block-2').prepend(readyLink.clone().addClass('no-image').removeClass('active-image-right'))
+            $(this).find('.bss-slider-deactive-block-3').prepend(readyLink.clone().addClass('no-image').removeClass('active-image-right'))
+            $(this).find('.bss-slider-deactive-block-4').prepend(linkClone.addClass('bss-slider-active-block'))
+            $(this).find('.bss-slider-block-2').prepend(readyLink);
         }
     })
 
     // banner slider
 
-    var li_length = $('#banner ul li').length;
+    var li_length = $('#bss-slider-main ul li').length;
 
     function BannerSlides(){
 
-        var current_li = $('#banner ul li.current').index();
+        var current_li = $('#bss-slider-main ul li.current').index();
         current_li++;
         if(current_li < li_length){
-            var current = $('#banner ul li.current');
+            var current = $('#bss-slider-main ul li.current');
             current.next().addClass('next_A');
 
 
             //First two slider white Flag off whihc is located Top Left
-              if(current.next().hasClass('withoutflag')){
-                $("#banner .bigFlag").hide();
-              } else {
-                 $("#banner .bigFlag").show();
-              }
+              // if(current.next().hasClass('withoutflag')){
+              //   $("#bss-slider-main .bigFlag").hide();
+              // } else {
+              //    $("#bss-slider-main .bigFlag").show();
+              // }
 
 
             // Normal Slider Code
-             if(current.next().hasClass('aloneSlide')){
-                $('#banner .bigSlide').fadeOut(1000);
-                $('#banner .next_A .forLink_2').animate({'opacity':'1'},1000,function(){
+             if(current.next().hasClass('carousel-generic')){
+                $('#bss-slider-main .bigSlide').fadeOut(1000);
+                $('#bss-slider-main .next_A .bss-slider-block-2').animate({'opacity':'1'},1000,function(){
                     current.removeClass('current');
                     current.next().addClass('current');
-                    $('#banner .next_A .forLink_2').attr('style','');
+                    $('#bss-slider-main .next_A .bss-slider-block-2').attr('style','');
                     current.next().removeClass('next_A');
                 });
             }
 
             else {
-                $('#banner .bigSlide').fadeIn(500);
-                $('#banner .next_A .forLink').animate({'opacity':'1'},500,function(){
+                $('#bss-slider-main .bigSlide').fadeIn(500);
+                $('#bss-slider-main .next_A .bss-slider-block-1').animate({'opacity':'1'},500,function(){
                     current.next().addClass('next_B');
-                    $('#banner .next_B .forLink_2').animate({'opacity':'1'},500,function(){
+                    $('#bss-slider-main .next_B .bss-slider-block-2').animate({'opacity':'1'},500,function(){
                         current.removeClass('current');
                         current.next().addClass('current');
-                        $('#banner .next_A .forLink').attr('style','');
-                        $('#banner .next_B .forLink_2').attr('style','');
+                        $('#bss-slider-main .next_A .bss-slider-block-1').attr('style','');
+                        $('#bss-slider-main .next_B .bss-slider-block-2').attr('style','');
                         current.next().removeClass('next_A next_B');
                     });
                 });
@@ -122,31 +130,31 @@ jQuery(document).ready(function($){
         }
         else {
             // Slider white Flag off whihc is located Top Left and this loop again deactive taht flag when it reached new circle
-            $("#banner .bigFlag").hide();
+            // $("#banner .bigFlag").hide();
 
             // Normal slider Code
-            var current = $('#banner ul li.current');
-            var next = $('#banner ul li:first');
+            var current = $('#bss-slider-main ul li.current');
+            var next = $('#bss-slider-main ul li:first');
             next.addClass('next_A');
 
-            if(next.hasClass('aloneSlide')){
-                $('#banner .bigSlide').fadeOut(1000);
-                $('#banner .next_A .forLink_2').animate({'opacity':'1'},1000,function(){
+            if(next.hasClass('carousel-generic')){
+                $('#bss-slider-main .bigSlide').fadeOut(1000);
+                $('#bss-slider-main .next_A .bss-slider-block-2').animate({'opacity':'1'},1000,function(){
                     current.removeClass('current');
                     next.addClass('current');
-                    $('#banner .next_A .forLink_2').attr('style','');
+                    $('#bss-slider-main .next_A .bss-slider-block-2').attr('style','');
                     next.removeClass('next_A');
                 });
             }
             else {
-                $('#banner .bigSlide').fadeIn(500);
-                $('#banner .next_A .forLink').animate({'opacity':'1'},500,function(){
+                $('#bss-slider-main .bigSlide').fadeIn(500);
+                $('#bss-slider-main .next_A .bss-slider-block-1').animate({'opacity':'1'},500,function(){
                     next.addClass('next_B');
-                    $('#banner .next_B .forLink_2').animate({'opacity':'1'},500,function(){
+                    $('#bss-slider-main .next_B .bss-slider-block-2').animate({'opacity':'1'},500,function(){
                         current.removeClass('current');
                         next.addClass('current');
-                        $('#banner .next_A .forLink').attr('style','');
-                        $('#banner .next_B .forLink_2').attr('style','');
+                        $('#bss-slider-main .next_A .bss-slider-block-1').attr('style','');
+                        $('#bss-slider-main .next_B .bss-slider-block-2').attr('style','');
                         next.removeClass('next_A next_B');
                     });
                 });
@@ -155,32 +163,32 @@ jQuery(document).ready(function($){
     }
 
     setTimeout(function(){
-        var current = $('#banner ul li.current');
+        var current = $('bss-slider-main ul li.current');
         current.next().addClass('next_A');
         setInterval(function(){
             BannerSlides()
         },5000)
 
-      if(current.next().hasClass('aloneSlide')){
-            $('#banner .bigSlide').fadeOut(1000);
-            $('#banner .next_A .forLink_2').animate({'opacity':'1'},1000,function(){
+      if(current.next().hasClass('carousel-generic')){
+            $('bss-slider-main .bigSlide').fadeOut(1000);
+            $('bss-slider-main .next_A .bss-slider-block-2').animate({'opacity':'1'},1000,function(){
                 current.removeClass('current');
                 current.next().addClass('current');
-                $('#banner .next_A .forLink_2').attr('style','');
+                $('bss-slider-main .next_A .bss-slider-block-2').attr('style','');
                 current.next().removeClass('next_A');
 
             });
         }
         else {
 
-            $('#banner .bigSlide').fadeIn(500);
-            $('#banner .next_A .forLink').animate({'opacity':'1'},500,function(){
+            $('bss-slider-main .bigSlide').fadeIn(500);
+            $('bss-slider-main .next_A .bss-slider-block-1').animate({'opacity':'1'},500,function(){
                 current.next().addClass('next_B');
-                $('#banner .next_B .forLink_2').animate({'opacity':'1'},500,function(){
+                $('bss-slider-main .next_B .bss-slider-block-2').animate({'opacity':'1'},500,function(){
                     current.removeClass('current');
                     current.next().addClass('current');
-                    $('#banner .next_A .forLink').attr('style','');
-                    $('#banner .next_B .forLink_2').attr('style','');
+                    $('bss-slider-main .next_A .bss-slider-block-1').attr('style','');
+                    $('bss-slider-main .next_B .bss-slider-block-2').attr('style','');
                     current.next().removeClass('next_A next_B');
                 });
             });
@@ -190,10 +198,10 @@ jQuery(document).ready(function($){
 
 
     // on load page
-    bannerWrap();
+    bootStrapShapeSlider();
 
     // on resize page
     $(window).resize(function(){
-        bannerWrap();
+        bootStrapShapeSlider();
     })
 })

@@ -75,58 +75,57 @@ body {
 
 /*--------------------------------banner--------------------------------*/
 
-#banner {
+#bss-slider-main {
     /*margin-bottom: 40px;*/
     margin-top: 120px;
     /*width: 1140px;*/
     /*height: 560px;*/
 }
-.bannerWrap {
+.bss-slider-wrapper {
     width: 100%;
     overflow: hidden;
     position: relative;
-    border: 1px solid blue;
+
 }
-.bannerContainer {
+.bss-slider-container {
     width: 1140px;
     height: 560px;
     position: absolute;
+    overflow: hidden;
     top: 0;
     left: 0;
-    overflow: hidden;
-    border: 1px solid tomato;
+
 }
-#banner ul {
+#bss-slider-main ul {
     width: 100%;
     height: 100%;
 }
-#banner ul li {
+#bss-slider-main ul li {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
 }
-#banner ul li.current {
+#bss-slider-main ul li.current {
     z-index: 2;
 }
-#banner a {
+#bss-slider-main a {
     background-color: transparent;
     background-position: center center;
     -webkit-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
 }
-#banner a span {
+#bss-slider-main a span {
     display: none;
-
     font-size: 40px;
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
     position: absolute;
     text-transform: uppercase;
 }
-#banner a.no-image {
+#bss-slider-main a.no-image {
     background-image: none !important;
     position: absolute;
     right: 0;
@@ -135,17 +134,17 @@ body {
     width: 100%;
     z-index: 0;
 }
-#banner .forLink_2 {
+#bss-slider-main .bss-slider-block-2{
     position: absolute;
     right: 0;
     top: 0;
     height: 100%;
     width: 60%;
 }
-#banner .aloneSlide .forLink_2 {
+#bss-slider-main .carousel-generic .bss-slider-block-2 {
     width: 100%;
 }
-#banner .readyLink {
+#bss-slider-main .active-image-right {
     position: absolute;
     left: 0;
     top: 0;
@@ -153,7 +152,7 @@ body {
     width: 100%;
 }
 
-#banner .forLink {
+#bss-slider-main .bss-slider-block-1{
     position: absolute;
     left: 0;
     top: 0;
@@ -162,22 +161,22 @@ body {
     z-index: 1;
     cursor: pointer;
 }
-#banner .next_A .forLink,
-#banner .next_A.aloneSlide .forLink_2 {
+#bss-slider-main .next_A .bss-slider-block-1,
+#bss-slider-main .next_A.carousel-generic .bss-slider-block-2 {
     z-index: 4;
     /*display: none;*/
     opacity: 0;
 }
-#banner .next_B .forLink_2 {
+#bss-slider-main .next_B .bss-slider-block-2 {
     z-index: 3;
     /*display: none;*/
     opacity: 0;
 }
-#banner .forLink div {
+#bss-slider-main .bss-slider-block-1 div {
     width: 100%;
     height: 100%;
 }
-#banner .forLink div.fl_1 {
+#bss-slider-main .bss-slider-block-1 div.bss-slider-deactive-block-1{
     -webkit-transform: rotate(28deg);
     -moz-transform: rotate(28deg);
     -ms-transform: rotate(28deg);
@@ -188,8 +187,9 @@ body {
     margin-left: -155px;
     margin-top: -175px;
     width: 135%;
+    border: 1px solid tomato;
 }
-#banner .forLink div.fl_2 {
+#bss-slider-main .bss-slider-block-1 div.bss-slider-deactive-block-2 {
     -webkit-transform: rotate(-28deg);
     -moz-transform: rotate(-28deg);
     -ms-transform: rotate(-28deg);
@@ -197,24 +197,27 @@ body {
     transform: rotate(-28deg);
     width: 114%;
     height: 805px;
+    border: 1px solid blue;
 }
-#banner .forLink div.fl_3 {
+#bss-slider-main .bss-slider-block-1 div.bss-slider-deactive-block-3 {
     -webkit-transform: rotate(-26deg);
     -moz-transform: rotate(-26deg);
     -ms-transform: rotate(-26deg);
     -o-transform: rotate(-26deg);
     transform: rotate(-26deg);
     overflow: hidden;
+    border: 1px solid pink;
 }
-#banner .forLink div.fl_4 {
+#bss-slider-main .bss-slider-block-1 div.bss-slider-deactive-block-4 {
     -webkit-transform: rotate(26deg);
     -moz-transform: rotate(26deg);
     -ms-transform: rotate(26deg);
     -o-transform: rotate(26deg);
     transform: rotate(26deg);
+    border: 1px solid cyan;
 }
-#banner .forLink a.fl_5,
-#banner .forLink div.fl_5 {
+#bss-slider-main .bss-slider-block-1 a.bss-slider-active-block,
+#bss-slider-main .bss-slider-block-1 div.bss-slider-active-block {
     bottom: 0;
     /*cursor: pointer;*/
     cursor: default;
@@ -226,12 +229,16 @@ body {
     width: 730px;
     z-index: 4;
 }
-#banner .readyLink span,
-#banner .fl_5 span {
+#bss-slider-main .active-image-right span,
+#bss-slider-main .bss-slider-active-block span {
     display: block;
     color: #000;
 }
-#banner .partOneTop {
+
+
+
+
+#bss-slider-main .partOneTop {
     background-color: #fff;
     height: 161px;
     left: 50%;
@@ -246,7 +253,7 @@ body {
     width: 17px;
     z-index: 6;
 }
-#banner .partOneBottom {
+#bss-slider-main .partOneBottom {
     background-color: #fff;
     bottom: -36px;
     height: 493px;
@@ -261,7 +268,7 @@ body {
     width: 17px;
     z-index: 6;
 }
-#banner .partTwoTop {
+#bss-slider-main .partTwoTop {
     background-color: rgba(255,255,255,0.78);
     height: 281px;
     left: 0;
@@ -276,7 +283,7 @@ body {
     width: 322px;
     z-index: 6;
 }
-#banner .partTwoBottom {
+#bss-slider-main .partTwoBottom {
     background-color: #fff;
     bottom: -14px;
     height: 493px;
@@ -291,7 +298,7 @@ body {
     width: 115px;
     z-index: 6;
 }
-#banner .fur {
+#bss-slider-main .fur {
     position: absolute;
     z-index: 6;
     top: 110px;
@@ -300,7 +307,7 @@ body {
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
 }
-#banner .dieHemb {
+#bss-slider-main .dieHemb {
     position: absolute;
     z-index: 6;
     bottom: 36px;
@@ -308,7 +315,7 @@ body {
     width: 295px;
     height: 30px;
 }
-#banner .dieBemb {
+#bss-slider-main .dieBemb {
     position: absolute;
     z-index: 6;
     top: 51px;
@@ -316,36 +323,36 @@ body {
     width: 293px;
     height: 30px;
 }
-#banner .dieHemb img,
-#banner .dieBemb img,
-#banner .fur img { width: 100%; height: 100%; }
-#banner .shadowLeft,
-#banner .shadowRight,
-#banner .shadowTop,
-#banner .shadowBottom {
+#bss-slider-main .dieHemb img,
+#bss-slider-main .dieBemb img,
+#bss-slider-main .fur img { width: 100%; height: 100%; }
+#bss-slider-main .shadowLeft,
+#bss-slider-main .shadowRight,
+#bss-slider-main .shadowTop,
+#bss-slider-main .shadowBottom {
     box-shadow: 0 0 46px 2px #0f0f0f;
     position: absolute;
     z-index: 7;
 }
-#banner .shadowLeft {
+#bss-slider-main .shadowLeft {
     bottom: 0;
     top: 0;
     left: 0;
     width: 0;
 }
-#banner .shadowRight {
+#bss-slider-main .shadowRight {
     bottom: 0;
     top: 0;
     right: 0;
     width: 0;
 }
-#banner .shadowTop {
+#bss-slider-main .shadowTop {
     top: 0;
     left: 0;
     right: 0;
     height: 0;
 }
-#banner .shadowBottom {
+#bss-slider-main .shadowBottom {
     bottom: 0;
     left: 0;
     right: 0;
@@ -428,7 +435,7 @@ body {
 
 
 @media screen and (max-width:767px){
-    #banner {margin-bottom: 20px}
+    #bss-slider-main {margin-bottom: 20px}
 
     /*#main {margin-bottom: 30px}*/
 
