@@ -145,7 +145,7 @@ $(document).ready(function($){
         current.next().addClass('slider-block-1');
         setInterval(function(){
             BannerSlides()
-        },5000)
+        },4000)
 
       if(current.next().hasClass('carousel-generic')){
             $('bss-slider-main .shape-off').fadeOut(1000);
@@ -171,7 +171,7 @@ $(document).ready(function($){
                 });
             });
         }
-    },4000)
+    },5000)
 
 
 
